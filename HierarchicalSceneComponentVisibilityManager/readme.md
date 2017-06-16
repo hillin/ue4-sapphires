@@ -18,3 +18,5 @@ However, if you want to show the tree again while leaving *Mesh* invisible, you'
 
 ## Implementation Notes
 This class employs a `TMap` to store hierarchical visibility state of components, but it doesn't bother to release for destroyed objects, so it does create a memory leak. However, since the memory footprint used for each component is very tiny, this shouldn't be a problem for typical use.
+
+As the name suggests, this class only manages visibility, or more specifically, the `bVisible` property of scene components. So it won't handle `HiddenInGame` nor `CollisionEnabled`. While it's difficult to create a proper manager that handles them all, you can create separate managers to handle each of them similar to this one.
